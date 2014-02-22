@@ -9,16 +9,23 @@ package project6;
  */
 public class Scissor implements Figure {
 
-	public static final int strength = 1;
+	public int strength = 1;
 	
 	@Override
 	public int getStrength() {
-		return 0;
+		return strength;
 	}
 
 	@Override
 	public boolean isWeakTo(Figure f) {
-		return false;
+		//as Interfaces disallow static methods, I am forced to do so
+				if(f.getStrength() == new Rock().getStrength()) {
+					return true;
+				}
+				else if(f.getStrength() == new Paper().getStrength()) {
+					return false;
+				}
+				return false;
 	}
 
 }

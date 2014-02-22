@@ -9,7 +9,7 @@ package project6;
  */
 public interface Figure {
 	
-	public static final int strength = 0;
+	public int strength = 0;
 	
 	int getStrength();
 	boolean isWeakTo(Figure f);
