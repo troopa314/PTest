@@ -11,6 +11,11 @@ public class Scissor implements Figure {
 
 	public int strength = 1;
 	
+	@Override 
+	public String toString() {
+		return "Scissor";
+	}
+	
 	@Override
 	public int getStrength() {
 		return strength;

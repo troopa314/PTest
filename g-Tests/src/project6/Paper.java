@@ -11,6 +11,11 @@ public class Paper implements Figure {
 
 	public int strength = 0;
 	
+	@Override 
+	public String toString() {
+		return "Paper";
+	}
+	
 	@Override
 	public int getStrength() {
 		return strength;

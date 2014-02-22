@@ -11,6 +11,11 @@ public class Rock implements Figure {
 
 	public int strength = 2;
 	
+	@Override 
+	public String toString() {
+		return "Rock";
+	}
+	
 	@Override
 	public int getStrength() {
 		return strength;
