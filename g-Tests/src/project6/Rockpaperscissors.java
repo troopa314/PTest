@@ -29,8 +29,8 @@ public class Rockpaperscissors {
 		Logo.printLogo();
 		System.out.println("__________________________________");
 		System.out.println("Rock is 2 - Paper is 0 - Scissors is 1");
-		sc = new Scanner(System.in);
-		winningScore = Integer.parseInt(JOptionPane.showInputDialog("Winning Score:"));
+		System.out.print("Winning score:");
+		winningScore = sc.nextInt();
 		//The game loop
 		while (pScore < winningScore || cScore < winningScore) {
 			game();
@@ -47,18 +47,18 @@ public class Rockpaperscissors {
 	public static void game() {
 		Figure chosenFigure = null;
 		//Input handling
-		System.out.println("Your Turn!");
-		int n = Integer.parseInt(JOptionPane.showInputDialog("Your Figure:"));
-		switch(n) {
-		case 0:
+		System.out.print("Your Turn:");
+		int n = sc.nextInt();
+		if(n == 0) {
 			chosenFigure = new Paper();
-		case 1:
+		}
+		else if(n == 1) {
 			chosenFigure = new Scissor();
-		case 2:
+		}
+		else {
 			chosenFigure = new Rock();
 		}
-		JOptionPane.showMessageDialog(null, chosenFigure);
-		JOptionPane.showMessageDialog(null, "Your Score: " + pScore + "\nComputer's Score: " + cScore);
+		System.out.println(chosenFigure.toString());
 		//Game logic
 		Figure computerFigure = Rockpaperscissors.giveRandomFigure();
 		System.out.println(chosenFigure.toString() + " VS " + computerFigure.toString());
@@ -74,10 +74,11 @@ public class Rockpaperscissors {
 			System.out.println("__________________________________");
 		}
 		}
-		catch(IllegalArgumentException e) {
+		catch(IllegalArgumentException e) { //actually thinking about making battle() a int-returning method
 			System.out.println("Both are equal.");
 			System.out.println("__________________________________");
 		}
+		System.out.println("Your Score: " + pScore + "\nComputer's Score: " + cScore);
 	}
 	
 	/**
@@ -87,10 +88,11 @@ public class Rockpaperscissors {
 	 * @return Winning figure
 	 */
 	private static Figure battle(Figure pF, Figure cF) {
-		if(pF == cF) {
+		if(pF.toString().equals(cF.toString())) {
 			throw new IllegalArgumentException("Same figures!");
 		}
 		else if(pF.isWeakTo(cF)) {
+			
 			return cF;
 		}
 		return pF;
