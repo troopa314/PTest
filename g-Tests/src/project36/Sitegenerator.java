@@ -20,14 +20,14 @@ public class Sitegenerator {
 	}
 		
 	public void generateBase(String title, String content) throws IOException{
-		fw.write("<html>");
-		fw.write("<head>");
-		fw.write("<title>" + title + "</title>");
-		fw.write("</head>");
-		fw.write("<body>");
+		fw.write("<html> \n");
+		fw.write("<head> \n");
+		fw.write("<title> \n" + title + "\n</title> \n");
+		fw.write("</head>\n");
+		fw.write("<body>\n");
 		fw.write(content);
-		fw.write("</body>");
-		fw.write("</html>");
+		fw.write("\n</body> \n");
+		fw.write("</html> \n");
 		fw.close();
 	}
 
